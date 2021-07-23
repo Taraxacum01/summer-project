@@ -1,0 +1,19 @@
+#table {
+    width: 3440px;
+    height: 3440px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+    border: 1px black solid;
+    background-color: #0000;
+    margin: 1px;
+}
+
+.cell:hover {
+    background-color: blue;
+}
