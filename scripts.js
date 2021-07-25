@@ -1,8 +1,8 @@
 let table = document.getElementById('table');
 
 
-const n = 143;
-const center = n/2;
+const n = 35;
+const center = (n - 1)/2;
 
 function Cell(x, y) {
     this.x = x;   // need
@@ -59,17 +59,19 @@ for (let i = 0; i < n; i++) {
                 cell.style.backgroundColor = 'black';
             }
             cells[i][j].isExistTile = !cells[i][j].isExistTile;
+            updateNeighbours(i, j);
+            checkField();
         }
     }
 }
 
-let cell = document.getElementsByTagName('cell');  // Warning! cell - ячейки в html
+let cell = document.getElementsByTagName('cell');  // Warning! cell - массив ячеек в html
                                                                 // cells - в js
 function checkField() {
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
             if (cells[i][j].isNeighbourWithTile && cells[i][j].isExistTile) {
-                cell[i*n+j].style.backgroundColor = '#7777'
+                cell[i*n+j].style.backgroundColor = '#6666'
             }
         }
     }

@@ -1,13 +1,18 @@
+:root {
+    --number-of-cells: 35;
+    --cell-size: 24px;
+}
+
 #table {
-    width: 3440px;
-    height: 3440px;
+    width: calc(var(--number-of-cells) * var(--cell-size) + 8px);
+    height: calc(var(--number-of-cells) * var(--cell-size) + 8px);
     display: flex;
     flex-wrap: wrap;
 }
 
 .cell {
-    height: 20px;
-    width: 20px;
+    height: calc(var(--cell-size) - 4px);
+    width: calc(var(--cell-size) - 4px);
     border-radius: 3px;
     border: 1px black solid;
     background-color: #0000;
@@ -16,4 +21,10 @@
 
 .cell:hover {
     background-color: blue;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
