@@ -1,7 +1,7 @@
 let table = document.getElementById('table');
 
 
-const n = 35;
+const n = 15;
 const center = (n - 1)/2;
 
 function Cell(x, y) {
@@ -26,11 +26,22 @@ function Cell(x, y) {
     this.isEndOfTown = false;
 }
 
-function updateNeighbours(x, y) {
-    cells[++x][y].isNeighbourWithTile = true;
-    cells[--x][++y].isNeighbourWithTile = true;
-    cells[--x][--y].isNeighbourWithTile = true;
-    cells[++x][++y].isNeighbourWithTile = true;
+function updateNeighbours(x, y, val) {
+    if (++x < n) {
+        cellsJS[x * n + y].isNeighbourWithTile = val;
+    }
+    --x;
+    if (++y < n) {
+        cellsJS[x * n + y].isNeighbourWithTile = val;
+    }
+    --y;
+    if (--x >= 0) {
+        cellsJS[x * n + y].isNeighbourWithTile = val;
+    }
+    ++x;
+    if (--y >= 0) {
+        cellsJS[x * n + y].isNeighbourWithTile = val;
+    }
 }
 
 
@@ -39,50 +50,50 @@ function step() {
 
 }
 
-let cells = [];
+let cellsJS = [];
 for (let i = 0; i < n; i++) {
-    cells[i] = [];
     for (let j = 0; j < n; j++) {
         let cell = document.createElement("div");
         cell.className = "cell";
         table.appendChild(cell);
-        cells[i][j] = new Cell(i, j);
+        cellsJS[i*n+j] = new Cell(i, j);
         if (i === center && j === center) {
-            cell.style.backgroundColor = '#9999';
+            cell.style.backgroundColor = 'grey';
         }
 
         cell.onclick = function () {
-            if (cells[i][j].isExistTile) {
+            if (cellsJS[i*n+j].isExistTile) {
                 cell.style.backgroundColor = '#0000';
             }
             else {
                 cell.style.backgroundColor = 'black';
+                updateNeighbours(i, j, true);
             }
-            cells[i][j].isExistTile = !cells[i][j].isExistTile;
-            updateNeighbours(i, j);
+            cellsJS[i*n+j].isExistTile = !cellsJS[i*n+j].isExistTile;
+            console.log(i, j);
             checkField();
         }
     }
 }
 
-let cell = document.getElementsByTagName('cell');  // Warning! cell - массив ячеек в html
+let cellsHTML = document.getElementsByClassName("cell");  // Warning! cell - массив ячеек в html
                                                                 // cells - в js
 function checkField() {
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
-            if (cells[i][j].isNeighbourWithTile && cells[i][j].isExistTile) {
-                cell[i*n+j].style.backgroundColor = '#6666'
+            if (cellsJS[i*n+j].isNeighbourWithTile && !cellsJS[i*n+j].isExistTile) {
+                cellsHTML[i*n+j].style['backgroundColor'] = '#6666'
             }
         }
     }
 }
 
-cells[center][center].routeN = 3;
-cells[center][center].routeE = 2; // id center tile - 7
-cells[center][center].routeW = 2;
-cells[center][center].routeS = 1;
+cellsJS[center*n+center].routeN = 3;
+cellsJS[center*n+center].routeE = 2; // id center tile - 7
+cellsJS[center*n+center].routeW = 2;
+cellsJS[center*n+center].routeS = 1;
 
-updateNeighbours(center,center);
+updateNeighbours(center,center, true);
 
 checkField();
 

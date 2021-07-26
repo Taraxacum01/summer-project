@@ -1,5 +1,5 @@
 :root {
-    --number-of-cells: 35;
+    --number-of-cells: 15;
     --cell-size: 24px;
 }
 
@@ -27,4 +27,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: calc(100vw - 8px);
+    height: calc(100vh - 8px);
 }
