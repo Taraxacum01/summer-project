@@ -1,6 +1,6 @@
 :root {
-    --number-of-cells: 15;
-    --cell-size: 24px;
+    --number-of-cells: 11;
+    --cell-size: 80px;
 }
 
 #table {
@@ -11,12 +11,14 @@
 }
 
 .cell {
-    height: calc(var(--cell-size) - 4px);
-    width: calc(var(--cell-size) - 4px);
+    height: calc(var(--cell-size) - 2px);
+    width: calc(var(--cell-size) - 2px);
     border-radius: 3px;
-    border: 1px black solid;
+    /*border: 1px black solid;*/
     background-color: #0000;
     margin: 1px;
+    transform: rotate(270deg);
+    background-size: cover;
 }
 
 .cell:hover {
@@ -28,5 +30,18 @@ body {
     justify-content: center;
     align-items: center;
     width: calc(100vw - 8px);
-    height: calc(100vh - 8px);
+    /*height: calc(100vh - 8px);*/
+    color: red;
+    font-size: 18px;
 }
+
+/*#img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    transform: rotate(270deg);
+    background-image: url("Tiles/3.png");
+    background-size: cover;
+}*/
