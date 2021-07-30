@@ -1,7 +1,7 @@
 let table = document.getElementById('table');
-let img = document.getElementById('img');
-let nextMove = document.getElementById('next_move');
-let rotation = document.getElementById('rotation');
+let img = document.getElementById('cell-preview');
+let nextMove = document.getElementById('finish-move-button');
+let rotation = document.getElementById('rotate-button');
 let png = ["Tiles/0.png", "Tiles/1.png", "Tiles/2.png", "Tiles/3.png", "Tiles/4.png", "Tiles/5.png", "Tiles/6.png", "Tiles/7.png", "Tiles/8.png", "Tiles/9.png", "Tiles/10.png", "Tiles/11.png", "Tiles/12.png", "Tiles/13.png", "Tiles/14.png", "Tiles/15.png", "Tiles/16.png", "Tiles/17.png", "Tiles/18.png", "Tiles/19.png", "Tiles/20.png", "Tiles/21.png", "Tiles/22.png", "Tiles/23.png"]
 let initValue = [0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13, 14, 14, 15, 15, 15, 16, 17, 17, 17, 18, 18, 19, 20, 20, 20, 20, 20, 20, 20, 20, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 23]
 
@@ -248,6 +248,7 @@ function step() {
     nextTile = randomize();
     if (nextTile == null) {
         console.log("Подходящие плитки закончились");
+        alert("Подходящие плитки закончились");
         return;
     }
     checkField(Object.assign(initialValue[nextTile]), true);
