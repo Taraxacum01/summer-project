@@ -52,8 +52,8 @@ body {
 
 
 #table {
-    width: calc(var(--number-of-cells) * var(--cell-size) + 8px);/**/
-    height: calc(var(--number-of-cells) * var(--cell-size) + 8px);/**/
+    width: calc(var(--number-of-cells) * var(--cell-size));/**/
+    height: calc(var(--number-of-cells) * var(--cell-size));/**/
     display: flex;
     flex-wrap: wrap;
     background-color: white;/**/
@@ -112,7 +112,7 @@ body {
 }
 
 .nickname{
-    font-size: 45px;
+    font-size: 40px;
 }
 
 .citizens-container{
