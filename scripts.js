@@ -2,14 +2,14 @@ let table = document.getElementById('table');
 let img = document.getElementById('cell-preview');
 let nextMove = document.getElementById('finish-move-button');
 let rotation = document.getElementById('rotate-button');
-let png = ["Tiles/0.png", "Tiles/1.png", "Tiles/2.png", "Tiles/3.png", "Tiles/4.png", "Tiles/5.png", "Tiles/6.png", "Tiles/7.png", "Tiles/8.png", "Tiles/9.png", "Tiles/10.png", "Tiles/11.png", "Tiles/12.png", "Tiles/13.png", "Tiles/14.png", "Tiles/15.png", "Tiles/16.png", "Tiles/17.png", "Tiles/18.png", "Tiles/19.png", "Tiles/20.png", "Tiles/21.png", "Tiles/22.png", "Tiles/23.png"]
-let initValue = [0, 0, 1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 10, 11, 11, 11, 12, 12, 13, 13, 13, 14, 14, 15, 15, 15, 16, 17, 17, 17, 18, 18, 19, 20, 20, 20, 20, 20, 20, 20, 20, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 23]
 
 let nextTile;
 let urlNextTile;
 let isAbilityToRotate = false;
 let isAbilityToNextMove = true;
 const n = 11;
+const nPlayer = 2;
+const nSub = 7;
 const center = (n - 1)/2;
 
 function Cell(x, y) {
@@ -27,6 +27,12 @@ function Cell(x, y) {
     this.isEndOfRoad = false;
     this.isEndOfTown = false;
     this.isMonastery = false;
+    this.isSubjectN = null;
+    this.isSubjectE = null;
+    this.isSubjectS = null;
+    this.isSubjectW = null;
+    this.isSubjectMonastery = null;
+    this.isBusyObject = false;
 }
 
 function rotate(obj, debug) {
@@ -59,6 +65,8 @@ for (let i = 0; i < 24; i++) {
     initialValue[i].isMonastery = DATA[i].isMonastery;
 }*/
 let initialValue = init();
+let Subjects = [nPlayer * nSub];
+
 
 function updateNeighbours(x, y, val) {
     if (++x < n) {
@@ -90,7 +98,7 @@ for (let i = 0; i < n; i++) {
         let t = i * n + j;
         cellsJS[t] = new Cell(i, j);
         if (i === center && j === center) {
-            cell.style.backgroundColor = 'grey';
+            cell.style.backgroundColor = 'black';
         }
 
         cell.onclick = function () {
@@ -245,10 +253,13 @@ function randomize() {
 }
 
 function step() {
+    nextMove.textContent = 'Завершить ход';
     nextTile = randomize();
     if (nextTile == null) {
         console.log("Подходящие плитки закончились");
         alert("Подходящие плитки закончились");
+        isAbilityToNextMove = true;
+        console.log(controlArray);
         return;
     }
     checkField(Object.assign(initialValue[nextTile]), true);
@@ -264,7 +275,7 @@ cellsJS[center*n+center].routeW = 1;
 for (let i = 0; i < 3; i++) {
     rotate(cellsJS[center * n + center], false);
 }
-
+cellsJS[center*n+center].isExistTile = true;
 cellsHTML[center * n + center].style.transform = "rotate(" + cellsJS[center*n+center].rotation + "deg)";
 cellsHTML[center * n + center].style.backgroundImage = 'url("Tiles/3.png")';
 
@@ -281,6 +292,3 @@ nextMove.onclick = function () {
         step();
     }
 }
-
-console.log(controlArray);
-
