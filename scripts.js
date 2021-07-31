@@ -2,13 +2,14 @@ let table = document.getElementById('table');
 let img = document.getElementById('cell-preview');
 let nextMove = document.getElementById('finish-move-button');
 let rotation = document.getElementById('rotate-button');
+let players = document.getElementsByClassName('player');
 
 let nextTile;
 let urlNextTile;
 let isAbilityToRotate = false;
 let isAbilityToNextMove = true;
 const n = 11;
-const nPlayer = 2;
+const nPlayer = 5;
 const nSub = 7;
 const center = (n - 1)/2;
 
@@ -89,6 +90,14 @@ function updateNeighbours(x, y, val) {
 let objRotate;
 let objRotateHtml;
 
+function NotIsAbilityPutTile() {
+    for (let i = 0 ; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            cellsJS[i*n+j].isAbilityPutTile = false;
+        }
+    }
+}
+
 let cellsJS = [];
 for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
@@ -104,6 +113,7 @@ for (let i = 0; i < n; i++) {
         cell.onclick = function () {
             if (cellsJS[t].isAbilityPutTile) {
                 AbilityPutColor('#0000');
+                NotIsAbilityPutTile();
                 updateNeighbours(i, j, true);
                 isAbilityToNextMove = true;
                 /*console.log(initialValue[nextTile]);*/
@@ -126,6 +136,7 @@ for (let i = 0; i < n; i++) {
                 /*console.log(objRotateHtml);*/
                 /*let r = "rotate(" + objRotateHtml.rotation + "deg)";*/
                 objRotateHtml.style.transform = "rotate(" + cellsJS[t].rotation + "deg)";
+                img.style.transform = "rotate(" + cellsJS[t].rotation + "deg)";
                 /*cellsHTML[t].style.transform = "rotate(" + cellsJS[t].rotation + "deg)";*/
                 objRotateHtml.style.backgroundImage = urlNextTile;
                 objRotateHtml.style.backgroundColor = 'black';
@@ -146,6 +157,7 @@ rotation.onclick = function () {
         }
         /*let r = "rotate(" + objRotateHtml.rotation + "deg)";*/
         objRotateHtml.style.transform = "rotate(" + objRotate.rotation + "deg)";
+        img.style.transform = "rotate(" + objRotate.rotation + "deg)";
     }
 }
 
@@ -252,8 +264,17 @@ function randomize() {
     return b;
 }
 
+let currentPlayer = -1;
+
 function step() {
-    nextMove.textContent = 'Завершить ход';
+    if (currentPlayer === -1) {
+        nextMove.textContent = 'Завершить ход';
+    }
+    else {
+        players[currentPlayer].classList.toggle("active");
+    }
+    currentPlayer = (currentPlayer + 1) % nPlayer;
+    players[currentPlayer].classList.toggle("active");
     nextTile = randomize();
     if (nextTile == null) {
         console.log("Подходящие плитки закончились");
