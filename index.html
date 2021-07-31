@@ -4,112 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Каркассон</title>
+    <title>Правила</title>
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<header class="header">
-    <img class="logo" src="Other images/logo.png">
-    <a href="rules.html" target="_blank"><button class="button">Правила</button></a>
-</header>
-<div class="container">
-    <div class="players">
-        <div class="player active">
-            <span class="nickname">Red Player</span>
-            <div class="citizens-container">
-                <img class="citizen red" src="Citizens/citizenUpRed.png">
-                <img class="citizen red" src="Citizens/citizenUpRed.png">
-                <img class="citizen red" src="Citizens/citizenUpRed.png">
-                <img class="citizen red" src="Citizens/citizenUpRed.png">
-                <img class="citizen red" src="Citizens/citizenUpRed.png">
-                <img class="citizen red" src="Citizens/citizenUpRed.png">
-            </div>
-            <div class="score">0</div>
-        </div>
-        <div class="player">
-            <span class="nickname">Blue Player</span>
-            <div class="citizens-container">
-                <img class="citizen blue" src="Citizens/citizenUpBlue.png">
-                <img class="citizen blue" src="Citizens/citizenUpBlue.png">
-                <img class="citizen blue" src="Citizens/citizenUpBlue.png">
-                <img class="citizen blue" src="Citizens/citizenUpBlue.png">
-                <img class="citizen blue" src="Citizens/citizenUpBlue.png">
-                <img class="citizen blue" src="Citizens/citizenUpBlue.png">
-            </div>
-            <div class="score">0</div>
-        </div>
-        <div class="player">
-            <span class="nickname">Yellow Player</span>
-            <div class="citizens-container">
-                <img class="citizen yellow" src="Citizens/citizenUpYellow.png">
-                <img class="citizen yellow" src="Citizens/citizenUpYellow.png">
-                <img class="citizen yellow" src="Citizens/citizenUpYellow.png">
-                <img class="citizen yellow" src="Citizens/citizenUpYellow.png">
-                <img class="citizen yellow" src="Citizens/citizenUpYellow.png">
-                <img class="citizen yellow" src="Citizens/citizenUpYellow.png">
-            </div>
-            <div class="score">0</div>
-        </div>
-        <div class="player">
-            <span class="nickname">Green Player</span>
-            <div class="citizens-container">
-                <img class="citizen green" src="Citizens/citizenUpGreen.png">
-                <img class="citizen green" src="Citizens/citizenUpGreen.png">
-                <img class="citizen green" src="Citizens/citizenUpGreen.png">
-                <img class="citizen green" src="Citizens/citizenUpGreen.png">
-                <img class="citizen green" src="Citizens/citizenUpGreen.png">
-                <img class="citizen green" src="Citizens/citizenUpGreen.png">
-            </div>
-            <div class="score">0</div>
-        </div>
-        <div class="player">
-            <span class="nickname">Black Player</span>
-            <div class="citizens-container">
-                <img class="citizen black" src="Citizens/citizenUpBlack.png">
-                <img class="citizen black" src="Citizens/citizenUpBlack.png">
-                <img class="citizen black" src="Citizens/citizenUpBlack.png">
-                <img class="citizen black" src="Citizens/citizenUpBlack.png">
-                <img class="citizen black" src="Citizens/citizenUpBlack.png">
-                <img class="citizen black" src="Citizens/citizenUpBlack.png">
-            </div>
-            <div class="score">0</div>
-        </div>
+    <header class="header">
+        <img class="logo" src="Other images/logo.png">
+    </header>
+    <div class="container">
+        <a href="rules.html" target="_blank"><button class="button">Правила</button></a>
+        <a href="index.html"><button class="button red">Начать играть</button></a>
     </div>
-    <div id="table"></div>
-
-    <div class="control">
-        <div class="cell-parameters">
-            <span class="element-name">Текущая плитка</span>
-            <div id="cell-preview"></div>
-            <div id="rotate-button">Повернуть</div>
-        </div>
-        <div class="citizen-parameters">
-            <span class="element-name">Выбор поданного</span>
-            <div class="radio-button-select">
-                <div class="citizen-select">
-                    <input id="radio-1" type="radio" name="radio" value="1" checked>
-                    <label class="label" for="radio-1">Рыцарь</label>
-                </div>
-                <div class="citizen-select">
-                    <input id="radio-2" type="radio" name="radio" value="2">
-                    <label class="label" for="radio-2">Путник</label>
-                </div>
-                <div class="citizen-select">
-                    <input id="radio-3" type="radio" name="radio" value="3">
-                    <label class="label" for="radio-3">Фермер</label>
-                </div>
-                <div class="citizen-select">
-                    <input id="radio-4" type="radio" name="radio" value="4">
-                    <label class="label" for="radio-4">Монах</label>
-                </div>
-            </div>
-            <button class="place-button">Поcтавить</button>
-        </div>
-        <div id="finish-move-button">Завершить ход</вшм>
-    </div>
-</div>
-<!--<div id="img"></div>-->
-<script type="text/javascript" src="initial.js"></script>
-<script type="text/javascript" src="scripts.js"></script>
 </body>
 </html>
