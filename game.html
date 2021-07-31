@@ -5,13 +5,37 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Каркассон</title>
-    <link href="game.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <header class="header">
     <img class="logo" src="Other images/logo.png">
     <a href="rules.html" target="_blank"><button class="button">Правила</button></a>
 </header>
+<div class="invisible-container">
+    <h1>Выберите количество игроков</h1>
+    <div id="nPlayers">
+        <div class="citizen-select">
+            <input id="player-2" type="radio" name="player" value="2" checked>
+            <label class="label" for="player-2">Два игрока</label>
+        </div>
+        <div class="citizen-select">
+            <input id="player-3" type="radio" name="player" value="3">
+            <label class="label" for="player-3">Три игрока</label>
+        </div>
+        <div class="citizen-select">
+            <input id="player-4" type="radio" name="player" value="4">
+            <label class="label" for="player-4">Четыре игрока</label>
+        </div>
+        <div class="citizen-select">
+            <input id="player-5" type="radio" name="player" value="5">
+            <label class="label" for="player-5">Пять игроков</label>
+        </div>
+        <div>
+            <button class="button form-button" type="submit" onclick="formP()">Перейти к игре</button>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="players">
         <div class="player">

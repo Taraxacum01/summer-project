@@ -9,9 +9,9 @@ let urlNextTile;
 let isAbilityToRotate = false;
 let isAbilityToNextMove = true;
 const n = 11;
-const nPlayer = 5;
-const nSub = 7;
 const center = (n - 1)/2;
+let nPlayer = 5;
+/*const nSub = 7;*/
 
 function Cell(x, y) {
     this.x = x;   // need
@@ -51,6 +51,23 @@ function rotate(obj, debug) {
     }
 }
 
+/*let form = document.querySelector("form");
+let log = document.querySelector("#log");*/
+let nP = document.getElementsByClassName('invisible-container')[0];
+function formP() {
+    let rad=document.getElementsByName('player');
+    for (let i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            nPlayer = i + 2;
+            nP.style.display = 'none';
+            for (let j = nPlayer; j < 5; j++) {
+                players[j].style.display = 'none';
+            }
+        }
+    }
+}
+
+
 
 /*let DATA = JSON.parse(data);
 
@@ -66,8 +83,6 @@ for (let i = 0; i < 24; i++) {
     initialValue[i].isMonastery = DATA[i].isMonastery;
 }*/
 let initialValue = init();
-let Subjects = [nPlayer * nSub];
-
 
 function updateNeighbours(x, y, val) {
     if (++x < n) {
