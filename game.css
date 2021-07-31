@@ -96,7 +96,7 @@ body {
 .player{
     border-radius: 10px;
     background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: 3px solid lightgray;
     margin: 5px;
     padding: 5px;
     display: flex;
