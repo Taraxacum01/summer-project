@@ -1,6 +1,6 @@
 :root {
     --number-of-cells: 11;
-    --cell-size: 90px;
+    --cell-size: 100px;
 }
 
 body {
@@ -50,6 +50,32 @@ body {
     transition: 0.3s;
 }
 
+.invisible-container{
+    top:0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    border-radius: 10px;
+    z-index: 1;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 2px black;
+    position: fixed;
+}
+
+.invisible{
+    width: 0;
+    height: 0;
+}
+
+h1{
+    margin: 10px;
+    color:rgb(255,243,0);
+    font-size: 36px;
+}
 
 #table {
     width: calc(var(--number-of-cells) * var(--cell-size));/**/
