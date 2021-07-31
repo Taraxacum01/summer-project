@@ -1,6 +1,6 @@
 :root {
     --number-of-cells: 11;
-    --cell-size: 80px;
+    --cell-size: 90px;
 }
 
 body {
@@ -65,7 +65,7 @@ body {
 .cell {
     height: calc(var(--cell-size) - 2px);
     width: calc(var(--cell-size) - 2px);
-    border-radius: 3px;
+    border-radius: 2px;
     border: 1px solid rgba(0, 0, 0, 0.5);/**/
     background-color: #0000;
     /*margin: 1px;*/
@@ -125,7 +125,7 @@ body {
 }
 
 .citizen.blue{
-    margin: 0px 3px;
+    margin: 0 3px;
     width: 34px;
 }
 
@@ -135,7 +135,7 @@ body {
 
 .citizen.green{
     width: 45px;
-    margin: 0px -2px;
+    margin: 0 -2px;
 }
 
 .citizen.black{
@@ -144,7 +144,7 @@ body {
 }
 
 .citizen.used{
-    width: 0px;
+    width: 0;
 }
 
 .score{
@@ -290,57 +290,3 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
-/*
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: calc(100vw - 8px);
-    //height: calc(100vh - 8px);
-    color: red;
-    font-size: 18px;
-}
-
-#img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 2px;
-    background-size: cover;
-}
-
-#img:hover {
-    background-color: aqua;
-}
-
-#next_move {
-    color: white;
-    background-color: black;
-    position: absolute;
-    right: 40px;
-    top: 40px;
-    height: 50px;
-    width: 150px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-#rotation {
-    color: white;
-    background-color: black;
-    position: absolute;
-    right: 45px;
-    top: 100px;
-    height: 30px;
-    width: 100px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}*/
